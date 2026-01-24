@@ -42,13 +42,32 @@ export default function Footer() {
                             <h3 className="text-white font-semibold mb-4">Quick Links</h3>
                             <ul className="space-y-3">
                                 {['Home', 'About Us', 'Services', 'Projects'].map((item) => (
-                                    <motion.li key={item} whileHover={{ x: 5 }}>
-                                        <Link href="/" className="text-[#A1A1A1] hover:text-[#00E08F] transition-colors text-sm inline-flex items-center gap-2">
+                                    <motion.li
+                                        key={item}
+                                        initial="rest"
+                                        whileHover="hover"
+                                        animate="rest"
+                                    >
+                                        <Link href="#" className="text-[#A1A1A1] hover:text-[#00E08F] transition-colors text-sm flex items-center gap-1 group">
                                             <motion.span
-                                                className="w-0 h-0.5 bg-[#00E08F]"
-                                                whileHover={{ width: 10 }}
-                                            />
-                                            {item}
+                                                variants={{
+                                                    rest: { opacity: 0, x: 5 },
+                                                    hover: { opacity: 1, x: 0 }
+                                                }}
+                                                className="text-[#00E08F] font-semibold"
+                                            >
+                                                (
+                                            </motion.span>
+                                            <span className="relative z-10">{item}</span>
+                                            <motion.span
+                                                variants={{
+                                                    rest: { opacity: 0, x: -5 },
+                                                    hover: { opacity: 1, x: 0 }
+                                                }}
+                                                className="text-[#00E08F] font-semibold"
+                                            >
+                                                )
+                                            </motion.span>
                                         </Link>
                                     </motion.li>
                                 ))}
@@ -62,13 +81,32 @@ export default function Footer() {
                             <h3 className="text-white font-semibold mb-4">Resources</h3>
                             <ul className="space-y-3">
                                 {['Blog', 'FAQ', 'Support', 'Contact'].map((item) => (
-                                    <motion.li key={item} whileHover={{ x: 5 }}>
-                                        <Link href="/" className="text-[#A1A1A1] hover:text-[#00E08F] transition-colors text-sm inline-flex items-center gap-2">
+                                    <motion.li
+                                        key={item}
+                                        initial="rest"
+                                        whileHover="hover"
+                                        animate="rest"
+                                    >
+                                        <Link href="#" className="text-[#A1A1A1] hover:text-[#00E08F] transition-colors text-sm flex items-center gap-1 group">
                                             <motion.span
-                                                className="w-0 h-0.5 bg-[#00E08F]"
-                                                whileHover={{ width: 10 }}
-                                            />
-                                            {item}
+                                                variants={{
+                                                    rest: { opacity: 0, x: 5 },
+                                                    hover: { opacity: 1, x: 0 }
+                                                }}
+                                                className="text-[#00E08F] font-semibold"
+                                            >
+                                                (
+                                            </motion.span>
+                                            <span className="relative z-10">{item}</span>
+                                            <motion.span
+                                                variants={{
+                                                    rest: { opacity: 0, x: -5 },
+                                                    hover: { opacity: 1, x: 0 }
+                                                }}
+                                                className="text-[#00E08F] font-semibold"
+                                            >
+                                                )
+                                            </motion.span>
                                         </Link>
                                     </motion.li>
                                 ))}

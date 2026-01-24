@@ -32,17 +32,27 @@ export default function Home() {
       {/* Content */}
       <div className="relative z-10">
         <Header />
-        <Hero />
-        <AboutSection />
+        <div id="home">
+          <Hero />
+        </div>
+        <div id="about">
+          <AboutSection />
+        </div>
         {/* <InnovationSection /> */}
         <MascotSection />
         {/* <IntersectionSection /> */}
         {/* <VideoShowcase /> */}
         {/* <GreenTechSection /> */}
-        <BusinessModelSection />
+        <div id="services">
+          <BusinessModelSection />
+        </div>
         <PartnersSection />
-        <FAQSection />
-        <Footer />
+        <div id="help">
+          <FAQSection />
+        </div>
+        <div id="terms">
+          <Footer />
+        </div>
       </div>
     </main>
   );

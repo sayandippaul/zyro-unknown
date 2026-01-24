@@ -1,9 +1,10 @@
 'use client';
 
-import { motion, AnimatePresence } from 'framer-motion';
-import { useState } from 'react';
+import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
+import { useState, useRef } from 'react';
 import { StaggerContainer, StaggerItem } from './AnimationWrappers';
 import { Reveal } from './AdvancedAnimations';
+import Image from 'next/image';
 
 interface FAQItem {
     question: string;
@@ -31,15 +32,42 @@ const faqData: FAQItem[] = [
 
 export default function FAQSection() {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
+    const containerRef = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: containerRef,
+        offset: ['start end', 'end start']
+    });
+
+    const backgroundY = useTransform(scrollYProgress, [0, 1], ['-20%', '20%']);
 
     const toggleFAQ = (index: number) => {
         setOpenIndex(openIndex === index ? null : index);
     };
 
     return (
-        <section className="section relative overflow-hidden bg-black">
+        <section ref={containerRef} className="section relative overflow-hidden bg-[#070B0B]">
+            {/* Parallax Background Image - Maintained consistency */}
+            <motion.div className="absolute inset-0 z-0" style={{ y: backgroundY }}>
+                <Image
+                    src="/images/hero-leaves.jpg"
+                    alt="Tropical leaves background"
+                    fill
+                    className="object-cover opacity-40 scale-110"
+                />
+            </motion.div>
+
+            {/* Global Overlay to darken - Fixed position (no parallax) */}
+            <div className="absolute inset-0 bg-[#070B0B]/30 z-[1] pointer-events-none" />
+
+            {/* Stronger Top/Bottom Blends - Fixed position (no parallax) */}
+            <div className="absolute top-0 left-0 right-0 h-64 bg-gradient-to-b from-[#070B0B] via-[#070B0B]/80 to-transparent z-[1] pointer-events-none" />
+            <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-[#070B0B] via-[#070B0B]/80 to-transparent z-[1] pointer-events-none" />
+
+            {/* Side Blends - Fixed position (no parallax) */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#070B0B] via-transparent to-[#070B0B] z-[1] pointer-events-none" />
+
             {/* Left Circuit Decoration */}
-            <div className="absolute left-0 top-1/2 -translate-y-1/2 pointer-events-none">
+            <div className="absolute left-0 top-1/2 -translate-y-1/2 pointer-events-none z-10">
                 <svg width="100" height="600" viewBox="0 0 100 600" className="opacity-80">
                     <line x1="50" y1="0" x2="50" y2="200" stroke="#00E08F" strokeWidth="2" />
                     <line x1="50" y1="200" x2="80" y2="230" stroke="#00E08F" strokeWidth="2" />

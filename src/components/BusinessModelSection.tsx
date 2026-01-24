@@ -78,7 +78,7 @@ export default function BusinessModelSection() {
                     playsInline
                     className="w-full h-full object-contain"
                 >
-                    <source src="https://res.cloudinary.com/dlrlet9fg/video/upload/v1769259881/business-video_sxa7f2.webm" type="video/webm" />
+                    <source src="https://res.cloudinary.com/dlrlet9fg/video/upload/v1769270495/9a163233-0ae9-4c7d-873f-220ab0943ea0_e5wthk.mp4" type="video/webm" />
                 </video>
                 {/* Dark overlay for text readability */}
                 <div className="absolute inset-0 bg-black/40" />

@@ -1,5 +1,6 @@
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
+import AboutSection from '@/components/AboutSection';
 import InnovationSection from '@/components/InnovationSection';
 import IntersectionSection from '@/components/IntersectionSection';
 import MascotSection from '@/components/MascotSection';
@@ -21,6 +22,7 @@ export default function Home() {
       <div className="relative z-10">
         <Header />
         <Hero />
+        <AboutSection />
         {/* <InnovationSection /> */}
         <MascotSection />
         {/* <IntersectionSection /> */}

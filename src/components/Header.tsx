@@ -37,13 +37,10 @@ export default function Header() {
             whileTap={{ scale: 0.95 }}
           >
             <Link href="/" className="flex items-center gap-2">
-              <motion.svg
-                width="40"
-                height="40"
-                viewBox="0 0 40 40"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="text-[#00E08F]"
+              <motion.img
+                src="/zyro-logo.svg"
+                alt="Zyro Logo"
+                className="w-auto h-10 object-contain"
                 animate={{
                   filter: [
                     'drop-shadow(0 0 5px rgba(0, 224, 143, 0.3))',
@@ -52,22 +49,7 @@ export default function Header() {
                   ]
                 }}
                 transition={{ duration: 2, repeat: Infinity }}
-              >
-                <path
-                  d="M20 8C20 8 12 12 12 20C12 24 14 28 20 28C14 28 10 24 10 18C10 12 16 8 20 8Z"
-                  fill="currentColor"
-                />
-                <path
-                  d="M20 8C20 8 28 12 28 20C28 24 26 28 20 28C26 28 30 24 30 18C30 12 24 8 20 8Z"
-                  fill="currentColor"
-                />
-                <path
-                  d="M20 4C20 4 20 10 20 16C20 22 20 28 20 32"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                />
-              </motion.svg>
+              />
             </Link>
           </motion.div>
 

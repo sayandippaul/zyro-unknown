@@ -6,7 +6,11 @@ import { Reveal } from './AdvancedAnimations';
 const businessComponents = [
     {
         id: 1,
-        label: 'Node Pools',
+        number: '01',
+        date: 'Phase 1',
+        title: 'Node Pools',
+        description: 'Distributed computing network',
+        color: '#00E08F',
         position: { top: '-7%', left: '22%' },
         border: 'right-bottom',
         lineAngle: 35,
@@ -14,7 +18,11 @@ const businessComponents = [
     },
     {
         id: 2,
-        label: 'Shieldeum AI\nInfrastructure\nDePIN',
+        number: '02',
+        date: 'Core',
+        title: 'Zyro AI Infrastructure DePIN',
+        description: 'Decentralized infrastructure',
+        color: '#00E08F',
         position: { top: '-22%', left: '46%', transform: 'translateX(-50%)' },
         border: 'bottom',
         lineAngle: 90,
@@ -22,7 +30,11 @@ const businessComponents = [
     },
     {
         id: 3,
-        label: 'Shieldeum\nProtocol',
+        number: '03',
+        date: 'Phase 2',
+        title: 'Zyro Protocol',
+        description: 'Security and consensus layer',
+        color: '#00E08F',
         position: { top: '-15%', right: '23%' },
         border: 'left-bottom',
         lineAngle: 145,
@@ -30,7 +42,11 @@ const businessComponents = [
     },
     {
         id: 4,
-        label: 'Infrastructure\n& Technology\nEcosystem',
+        number: '04',
+        date: 'Ecosystem',
+        title: 'Infrastructure & Technology',
+        description: 'Development framework',
+        color: '#00E08F',
         position: { top: '60%', left: '18%' },
         border: 'right-top',
         lineAngle: -35,
@@ -38,7 +54,11 @@ const businessComponents = [
     },
     {
         id: 5,
-        label: 'Secure\nComputing\nPower',
+        number: '05',
+        date: 'Security',
+        title: 'Secure Computing Power',
+        description: 'Protected processing units',
+        color: '#00E08F',
         position: { top: '63%', right: '17%' },
         border: 'left-top',
         lineAngle: -145,
@@ -72,11 +92,6 @@ export default function BusinessModelSection() {
                     <line x1="90" y1="230" x2="90" y2="370" stroke="#00E08F" strokeWidth="2" />
                     <line x1="90" y1="370" x2="60" y2="400" stroke="#00E08F" strokeWidth="2" />
                     <line x1="60" y1="400" x2="60" y2="600" stroke="#00E08F" strokeWidth="2" />
-                    {/* 
-                    <circle cx="60" cy="200" r="5" fill="#00E08F" filter="url(#glow-bm)" />
-                    <circle cx="90" cy="230" r="5" fill="#00E08F" filter="url(#glow-bm)" />
-                    <circle cx="90" cy="370" r="5" fill="#00E08F" filter="url(#glow-bm)" />
-                    <circle cx="60" cy="400" r="5" fill="#00E08F" filter="url(#glow-bm)" /> */}
 
                     <defs>
                         <filter id="glow-bm">
@@ -99,13 +114,6 @@ export default function BusinessModelSection() {
                     <line x1="30" y1="370" x2="60" y2="400" stroke="#00E08F" strokeWidth="2" />
                     <line x1="60" y1="400" x2="60" y2="600" stroke="#00E08F" strokeWidth="2" />
 
-                    {/* <circle cx="60" cy="200" r="5" fill="#00E08F" filter="url(#glow-bm2)" />
-                    <circle cx="30" cy="230" r="5" fill="#00E08F" filter="url(#glow-bm2)" />
-                    <path d="M 30,300 L 35,305 L 30,310 L 25,305 Z" fill="#00E08F" filter="url(#glow-bm2)" />
-                    <circle cx="30" cy="305" r="2" fill="#00E08F" />
-                    <circle cx="30" cy="370" r="5" fill="#00E08F" filter="url(#glow-bm2)" />
-                    <circle cx="60" cy="400" r="5" fill="#00E08F" filter="url(#glow-bm2)" /> */}
-
                     <defs>
                         <filter id="glow-bm2">
                             <feGaussianBlur stdDeviation="4" result="coloredBlur" />
@@ -119,10 +127,10 @@ export default function BusinessModelSection() {
             </div>
 
             {/* Heading - Left aligned like Shieldeum */}
-            <div className="absolute top-[5%] left-[119.5px] z-10">
+            <div className="absolute top-[2%] left-[130.5px] z-10 mb-20">
                 <Reveal direction="up">
-                    <h2 className="text-6xl md:text-7xl font-bold text-white uppercase">
-                        Business Model
+                    <h2 className="text-6xl md:text-7xl font-bold text-white uppercase mb-20" >
+                        Timeline
                     </h2>
                 </Reveal>
             </div>
@@ -150,22 +158,56 @@ export default function BusinessModelSection() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: index * 0.1 }}
                         >
-                            {/* Label Box with border */}
+                            {/* Label Box with structured content */}
                             <div
-                                className="px-5 py-5 text-white text-sm md:text-base font-medium whitespace-pre-line text-center"
+                                className="px-6 py-4 text-white relative"
                                 style={{
-                                    borderLeft: component.border === 'left' ? '1px solid rgb(59, 67, 67)' : 'none',
-                                    borderRight: component.border === 'right' ? '1px solid rgb(59, 67, 67)' : 'none',
-                                    borderBottom: component.border === 'bottom' ? '1px solid rgb(59, 67, 67)' : 'none',
-                                    borderRadius: component.border === 'right' ? '0 0 4px 0' : component.border === 'left' ? '0 0 0 4px' : '0'
+                                    borderLeft: component.border.includes('left') ? '1px solid rgb(59, 67, 67)' : 'none',
+                                    borderRight: component.border.includes('right') ? '1px solid rgb(59, 67, 67)' : 'none',
+                                    borderBottom: component.border.includes('bottom') ? '1px solid rgb(59, 67, 67)' : 'none',
+                                    borderTop: component.border.includes('top') ? '1px solid rgb(59, 67, 67)' : 'none',
+                                    borderRadius: component.border === 'right-bottom' ? '0 0 4px 0' :
+                                        component.border === 'left-bottom' ? '0 0 0 4px' :
+                                            component.border === 'right-top' ? '0 4px 0 0' :
+                                                component.border === 'left-top' ? '4px 0 0 0' : '0',
+                                    minWidth: '200px'
                                 }}
                             >
-                                {component.label}
+                                {/* Number badge */}
+                                <div
+                                    className="absolute -top-3 -left-3 w-7 h-7 flex items-center justify-center text-xs font-bold"
+                                    style={{
+                                        backgroundColor: component.color,
+                                        color: '#000',
+                                        borderRadius: '4px',
+                                        boxShadow: '0 0 10px rgba(0, 224, 143, 0.6)'
+                                    }}
+                                >
+                                    {component.number}
+                                </div>
+
+                                {/* Date */}
+                                <div
+                                    className="text-xs font-semibold mb-2"
+                                    style={{ color: component.color }}
+                                >
+                                    {component.date}
+                                </div>
+
+                                {/* Title */}
+                                <div className="text-base md:text-lg font-bold mb-1">
+                                    {component.title}
+                                </div>
+
+                                {/* Description */}
+                                <div className="text-xs text-gray-400">
+                                    {component.description}
+                                </div>
                             </div>
 
                             {/* Connecting Line - Diagonal/Angled */}
                             <svg
-                                className="absolute top-full left-1/2 -translate-x-1/2 pointer-events-none"
+                                className={`absolute left-1/2 -translate-x-1/2 pointer-events-none ${component.lineAngle < 0 ? '-top-4' : 'top-full'}`}
                                 width={svgWidth}
                                 height={svgHeight}
                                 style={{ overflow: 'visible' }}

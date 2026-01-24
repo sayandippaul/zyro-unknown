@@ -1,0 +1,312 @@
+'use client';
+
+import { motion, useScroll, useTransform } from 'framer-motion';
+import Image from 'next/image';
+import { useRef } from 'react';
+import { FadeIn, Floating, GlowPulse } from './AnimationWrappers';
+import { Parallax, MagneticButton, Reveal, GradientText, MorphingBlob } from './AdvancedAnimations';
+
+export default function Hero() {
+    const containerRef = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: containerRef,
+        offset: ['start start', 'end start']
+    });
+
+    const backgroundY = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
+    const textY = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
+    const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+
+    return (
+        <section ref={containerRef} className="relative min-h-screen flex items-center pt-24 overflow-hidden">
+            {/* Morphing background blobs */}
+            <MorphingBlob className="w-[600px] h-[600px] top-1/4 -left-1/4" />
+            <MorphingBlob className="w-[400px] h-[400px] bottom-1/4 right-0" />
+
+            {/* Parallax Background Image */}
+            <motion.div className="absolute inset-0 z-0" style={{ y: backgroundY }}>
+                <Image
+                    src="/images/hero-leaves.jpg"
+                    alt="Tropical leaves background"
+                    fill
+                    className="object-cover scale-110"
+                    priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-[#070B0B]/60 via-[#070B0B]/40 to-[#070B0B]" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#070B0B]/80 to-transparent" />
+            </motion.div>
+
+            <motion.div
+                className="container-custom relative z-10"
+                style={{ y: textY, opacity }}
+            >
+                <div className="grid lg:grid-cols-2 gap-12 items-center">
+                    {/* Left Content */}
+                    <div className="space-y-8">
+                        {/* Main Headline with Staggered Animation */}
+                        <div className="overflow-hidden">
+                            <motion.h1
+                                className="text-6xl md:text-7xl lg:text-8xl font-extrabold leading-tight"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ duration: 0.5 }}
+                            >
+                                <motion.div
+                                    initial={{ y: 100, rotateX: -90 }}
+                                    animate={{ y: 0, rotateX: 0 }}
+                                    transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+                                    style={{ transformOrigin: 'bottom' }}
+                                >
+                                    <span className="text-white inline-block">Tech</span>
+                                </motion.div>
+                                <motion.div
+                                    initial={{ y: 100, rotateX: -90 }}
+                                    animate={{ y: 0, rotateX: 0 }}
+                                    transition={{ duration: 0.8, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+                                    style={{ transformOrigin: 'bottom' }}
+                                >
+                                    <GradientText className="font-extrabold">Nature</GradientText>
+                                </motion.div>
+                            </motion.h1>
+                        </div>
+
+                        <Reveal delay={0.6} direction="up">
+                            <p className="text-[#A1A1A1] text-lg max-w-md leading-relaxed">
+                                From energy-saving devices to green architecture, we&apos;re dedicated to
+                                preserving the planet while enhancing everyday life. Join us in building
+                                a harmonious balance between nature
+                            </p>
+                        </Reveal>
+
+                        <Reveal delay={0.8} direction="up">
+                            <div className="flex flex-wrap gap-4">
+                                <MagneticButton>
+                                    <motion.button
+                                        className="btn-outline"
+                                        whileHover={{ scale: 1.05, borderColor: '#00E08F' }}
+                                        whileTap={{ scale: 0.95 }}
+                                        transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+                                    >
+                                        Read More
+                                    </motion.button>
+                                </MagneticButton>
+                                <MagneticButton>
+                                    <motion.button
+                                        className="btn-primary relative overflow-hidden group"
+                                        whileHover={{ scale: 1.05 }}
+                                        whileTap={{ scale: 0.95 }}
+                                        transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+                                    >
+                                        <span className="relative z-10">Get Started</span>
+                                        <motion.div
+                                            className="absolute inset-0 bg-white/20"
+                                            initial={{ x: '-100%' }}
+                                            whileHover={{ x: '100%' }}
+                                            transition={{ duration: 0.5 }}
+                                        />
+                                    </motion.button>
+                                </MagneticButton>
+                            </div>
+                        </Reveal>
+
+                        {/* Tags with staggered reveal */}
+                        <Reveal delay={1.0} direction="left">
+                            <div className="flex flex-wrap gap-3 pt-4">
+                                <motion.span
+                                    className="tag"
+                                    whileHover={{ borderColor: '#00E08F', color: '#00E08F', scale: 1.05 }}
+                                >
+                                    <motion.span
+                                        className="green-dot"
+                                        animate={{ scale: [1, 1.3, 1] }}
+                                        transition={{ duration: 1.5, repeat: Infinity }}
+                                    />
+                                    Intersection of technology and nature
+                                </motion.span>
+                            </div>
+                        </Reveal>
+                        <Reveal delay={1.2} direction="left">
+                            <div className="flex flex-wrap gap-3">
+                                <motion.span
+                                    className="tag"
+                                    whileHover={{ borderColor: '#00E08F', color: '#00E08F', scale: 1.05 }}
+                                >
+                                    Pioneering green tech
+                                </motion.span>
+                                <motion.span
+                                    className="tag"
+                                    whileHover={{ borderColor: '#00E08F', color: '#00E08F', scale: 1.05 }}
+                                >
+                                    Creating a cleaner world
+                                </motion.span>
+                            </div>
+                        </Reveal>
+                    </div>
+
+                    {/* Right Content - Floating Cards */}
+                    <div className="relative hidden lg:block h-[500px]">
+                        {/* Clients Card */}
+                        <Parallax speed={0.3}>
+                            <motion.div
+                                className="glass rounded-2xl p-4"
+                                initial={{ opacity: 0, y: 50, rotateY: -20 }}
+                                animate={{ opacity: 1, y: 0, rotateY: 0 }}
+                                transition={{ duration: 0.8, delay: 0.5 }}
+                                whileHover={{ boxShadow: '0 0 40px rgba(0, 224, 143, 0.3)' }}
+                            >
+                                <div className="flex items-center gap-3">
+                                    <div className="flex -space-x-3">
+                                        {[0, 1, 2].map((i) => (
+                                            <motion.div
+                                                key={i}
+                                                className={`w-10 h-10 rounded-full border-2 border-[#070B0B] ${i === 0 ? 'bg-gradient-to-br from-green-400 to-green-600' :
+                                                    i === 1 ? 'bg-gradient-to-br from-blue-400 to-blue-600' :
+                                                        'bg-gradient-to-br from-purple-400 to-purple-600'
+                                                    }`}
+                                                initial={{ scale: 0, x: 20 }}
+                                                animate={{ scale: 1, x: 0 }}
+                                                transition={{ delay: 0.8 + i * 0.1, type: 'spring' }}
+                                            />
+                                        ))}
+                                    </div>
+                                    <div>
+                                        <motion.p
+                                            className="text-white font-bold text-lg"
+                                            initial={{ opacity: 0 }}
+                                            animate={{ opacity: 1 }}
+                                            transition={{ delay: 1.1 }}
+                                        >
+                                            578M +
+                                        </motion.p>
+                                        <p className="text-[#A1A1A1] text-sm">Clients Active</p>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        </Parallax>
+
+                        {/* Green Innovation Card */}
+                        <Parallax speed={0.5}>
+                            <Floating duration={5} distance={12}>
+                                <motion.div
+                                    className="absolute top-24 right-0 glass-green rounded-2xl p-5 max-w-xs"
+                                    initial={{ opacity: 0, x: 50, scale: 0.8 }}
+                                    animate={{ opacity: 1, x: 0, scale: 1 }}
+                                    transition={{ duration: 0.8, delay: 0.7 }}
+                                >
+                                    <div className="flex items-start justify-between gap-4">
+                                        <div>
+                                            <h3 className="text-white font-semibold text-lg">Green innovation</h3>
+                                            <p className="text-[#A1A1A1] text-sm mt-1">
+                                                Join us in building harmonious balance between nature
+                                            </p>
+                                        </div>
+                                        <GlowPulse className="w-10 h-10 rounded-xl bg-[#00E08F] flex items-center justify-center flex-shrink-0">
+                                            <motion.svg
+                                                className="w-5 h-5 text-[#070B0B]"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                viewBox="0 0 24 24"
+                                                whileHover={{ rotate: 45 }}
+                                                transition={{ type: 'spring', stiffness: 300 }}
+                                            >
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7V17" />
+                                            </motion.svg>
+                                        </GlowPulse>
+                                    </div>
+                                </motion.div>
+                            </Floating>
+                        </Parallax>
+
+                        {/* Innovative Nature Card */}
+                        <Parallax speed={0.7}>
+                            <Floating duration={6} distance={8}>
+                                <motion.div
+                                    className="absolute top-64 left-1/4 glass rounded-2xl p-5 max-w-xs"
+                                    initial={{ opacity: 0, y: 50, rotateX: 20 }}
+                                    animate={{ opacity: 1, y: 0, rotateX: 0 }}
+                                    transition={{ duration: 0.8, delay: 0.9 }}
+                                    whileHover={{ boxShadow: '0 0 40px rgba(0, 224, 143, 0.2)' }}
+                                >
+                                    <div className="flex items-center gap-3 mb-3">
+                                        <motion.span
+                                            className="green-dot"
+                                            animate={{
+                                                scale: [1, 1.5, 1],
+                                                boxShadow: ['0 0 5px #00E08F', '0 0 20px #00E08F', '0 0 5px #00E08F']
+                                            }}
+                                            transition={{ duration: 2, repeat: Infinity }}
+                                        />
+                                        <h3 className="text-white font-semibold">Innovative nature</h3>
+                                    </div>
+                                    <p className="text-[#A1A1A1] text-sm">
+                                        We&apos;re dedicated to preserving the planet while enhancing everyday life.
+                                    </p>
+                                </motion.div>
+                            </Floating>
+                        </Parallax>
+
+                        {/* Sustainable Future Card */}
+                        <Parallax speed={0.4}>
+                            <Floating duration={4.5} distance={10}>
+                                <motion.div
+                                    className="absolute bottom-32 right-8 glass rounded-2xl p-4"
+                                    initial={{ opacity: 0, scale: 0.5 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    transition={{ duration: 0.8, delay: 1.1, type: 'spring' }}
+                                    whileHover={{ boxShadow: '0 0 40px rgba(0, 224, 143, 0.2)' }}
+                                >
+                                    <div className="flex items-center gap-3">
+                                        <motion.div
+                                            className="w-12 h-12 rounded-xl overflow-hidden"
+                                            whileHover={{ scale: 1.1, rotate: 5 }}
+                                        >
+                                            <Image
+                                                src="/images/forest-preview.jpg"
+                                                alt="Forest"
+                                                width={48}
+                                                height={48}
+                                                className="object-cover w-full h-full"
+                                            />
+                                        </motion.div>
+                                        <div>
+                                            <h3 className="text-white font-semibold text-sm">Nature for a</h3>
+                                            <p className="text-[#00E08F] text-sm">sustainable future</p>
+                                        </div>
+                                    </div>
+                                </motion.div>
+                            </Floating>
+                        </Parallax>
+                    </div>
+                </div>
+            </motion.div>
+
+            {/* Scroll Indicator with enhanced animation */}
+            <motion.div
+                className="absolute bottom-8 left-1/2 -translate-x-1/2"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.5 }}
+            >
+                <motion.div
+                    className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center pt-2 cursor-pointer"
+                    animate={{ y: [0, 5, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                    whileHover={{ borderColor: '#00E08F' }}
+                >
+                    <motion.div
+                        className="w-1.5 h-3 bg-[#00E08F] rounded-full"
+                        animate={{ y: [0, 8, 0], opacity: [1, 0.5, 1] }}
+                        transition={{ duration: 1.5, repeat: Infinity }}
+                    />
+                </motion.div>
+                <motion.p
+                    className="text-[#A1A1A1] text-xs mt-2 text-center"
+                    animate={{ opacity: [0.5, 1, 0.5] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                >
+                    Scroll
+                </motion.p>
+            </motion.div>
+        </section>
+    );
+}

@@ -15,13 +15,10 @@ export default function Footer() {
                         <div className="space-y-4">
                             <motion.div whileHover={{ scale: 1.05 }}>
                                 <Link href="/" className="flex items-center gap-2">
-                                    <motion.svg
-                                        width="40"
-                                        height="40"
-                                        viewBox="0 0 40 40"
-                                        fill="none"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        className="text-[#00E08F]"
+                                    <motion.img
+                                        src="/zyro-logo.svg"
+                                        alt="Zyro Logo"
+                                        className="w-auto h-12 object-contain"
                                         animate={{
                                             filter: [
                                                 'drop-shadow(0 0 5px rgba(0, 224, 143, 0.3))',
@@ -30,23 +27,7 @@ export default function Footer() {
                                             ]
                                         }}
                                         transition={{ duration: 2, repeat: Infinity }}
-                                    >
-                                        <path
-                                            d="M20 8C20 8 12 12 12 20C12 24 14 28 20 28C14 28 10 24 10 18C10 12 16 8 20 8Z"
-                                            fill="currentColor"
-                                        />
-                                        <path
-                                            d="M20 8C20 8 28 12 28 20C28 24 26 28 20 28C26 28 30 24 30 18C30 12 24 8 20 8Z"
-                                            fill="currentColor"
-                                        />
-                                        <path
-                                            d="M20 4C20 4 20 10 20 16C20 22 20 28 20 32"
-                                            stroke="currentColor"
-                                            strokeWidth="2"
-                                            strokeLinecap="round"
-                                        />
-                                    </motion.svg>
-                                    <span className="text-white font-bold text-xl">Tech Nature</span>
+                                    />
                                 </Link>
                             </motion.div>
                             <p className="text-[#A1A1A1] text-sm">
@@ -61,13 +42,32 @@ export default function Footer() {
                             <h3 className="text-white font-semibold mb-4">Quick Links</h3>
                             <ul className="space-y-3">
                                 {['Home', 'About Us', 'Services', 'Projects'].map((item) => (
-                                    <motion.li key={item} whileHover={{ x: 5 }}>
-                                        <Link href="/" className="text-[#A1A1A1] hover:text-[#00E08F] transition-colors text-sm inline-flex items-center gap-2">
+                                    <motion.li
+                                        key={item}
+                                        initial="rest"
+                                        whileHover="hover"
+                                        animate="rest"
+                                    >
+                                        <Link href="#" className="text-[#A1A1A1] hover:text-[#00E08F] transition-colors text-sm flex items-center gap-1 group">
                                             <motion.span
-                                                className="w-0 h-0.5 bg-[#00E08F]"
-                                                whileHover={{ width: 10 }}
-                                            />
-                                            {item}
+                                                variants={{
+                                                    rest: { opacity: 0, x: 5 },
+                                                    hover: { opacity: 1, x: 0 }
+                                                }}
+                                                className="text-[#00E08F] font-semibold"
+                                            >
+                                                (
+                                            </motion.span>
+                                            <span className="relative z-10">{item}</span>
+                                            <motion.span
+                                                variants={{
+                                                    rest: { opacity: 0, x: -5 },
+                                                    hover: { opacity: 1, x: 0 }
+                                                }}
+                                                className="text-[#00E08F] font-semibold"
+                                            >
+                                                )
+                                            </motion.span>
                                         </Link>
                                     </motion.li>
                                 ))}
@@ -81,13 +81,32 @@ export default function Footer() {
                             <h3 className="text-white font-semibold mb-4">Resources</h3>
                             <ul className="space-y-3">
                                 {['Blog', 'FAQ', 'Support', 'Contact'].map((item) => (
-                                    <motion.li key={item} whileHover={{ x: 5 }}>
-                                        <Link href="/" className="text-[#A1A1A1] hover:text-[#00E08F] transition-colors text-sm inline-flex items-center gap-2">
+                                    <motion.li
+                                        key={item}
+                                        initial="rest"
+                                        whileHover="hover"
+                                        animate="rest"
+                                    >
+                                        <Link href="#" className="text-[#A1A1A1] hover:text-[#00E08F] transition-colors text-sm flex items-center gap-1 group">
                                             <motion.span
-                                                className="w-0 h-0.5 bg-[#00E08F]"
-                                                whileHover={{ width: 10 }}
-                                            />
-                                            {item}
+                                                variants={{
+                                                    rest: { opacity: 0, x: 5 },
+                                                    hover: { opacity: 1, x: 0 }
+                                                }}
+                                                className="text-[#00E08F] font-semibold"
+                                            >
+                                                (
+                                            </motion.span>
+                                            <span className="relative z-10">{item}</span>
+                                            <motion.span
+                                                variants={{
+                                                    rest: { opacity: 0, x: -5 },
+                                                    hover: { opacity: 1, x: 0 }
+                                                }}
+                                                className="text-[#00E08F] font-semibold"
+                                            >
+                                                )
+                                            </motion.span>
                                         </Link>
                                     </motion.li>
                                 ))}

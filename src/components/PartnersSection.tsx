@@ -1,7 +1,7 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useState, useEffect, useRef } from 'react';
 import { Reveal } from './AdvancedAnimations';
 import Image from 'next/image';
 
@@ -20,6 +20,13 @@ const partners = [
 
 export default function PartnersSection() {
     const [currentIndex, setCurrentIndex] = useState(0);
+    const containerRef = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: containerRef,
+        offset: ['start end', 'end start']
+    });
+
+    const backgroundY = useTransform(scrollYProgress, [0, 1], ['-20%', '20%']);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -38,9 +45,29 @@ export default function PartnersSection() {
     };
 
     return (
-        <section className="section relative overflow-hidden bg-black">
+        <section ref={containerRef} className="section relative overflow-hidden bg-[#070B0B]">
+            {/* Parallax Background Image - Copied from Hero */}
+            <motion.div className="absolute inset-0 z-0" style={{ y: backgroundY }}>
+                <Image
+                    src="/images/hero-leaves.jpg"
+                    alt="Tropical leaves background"
+                    fill
+                    className="object-cover opacity-40 scale-110"
+                />
+            </motion.div>
+
+            {/* Global Overlay to darken - Fixed position (no parallax) */}
+            <div className="absolute inset-0 bg-[#070B0B]/30 z-[1] pointer-events-none" />
+
+            {/* Stronger Top/Bottom Blends - Fixed position (no parallax) */}
+            <div className="absolute top-0 left-0 right-0 h-64 bg-gradient-to-b from-[#070B0B] via-[#070B0B]/80 to-transparent z-[1] pointer-events-none" />
+            <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-[#070B0B] via-[#070B0B]/80 to-transparent z-[1] pointer-events-none" />
+
+            {/* Side Blends - Fixed position (no parallax) */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#070B0B] via-transparent to-[#070B0B] z-[1] pointer-events-none" />
+
             {/* Left Circuit Decoration - Matching Shieldeum exactly */}
-            <div className="absolute left-0 top-1/2 -translate-y-1/2 pointer-events-none">
+            <div className="absolute left-0 top-1/2 -translate-y-1/2 pointer-events-none z-10">
                 <svg width="120" height="550" viewBox="0 0 120 550" className="opacity-90">
                     {/* Main vertical line */}
                     <line x1="60" y1="0" x2="60" y2="180" stroke="#00E08F" strokeWidth="2" />
@@ -72,7 +99,7 @@ export default function PartnersSection() {
             </div>
 
             {/* Right Circuit Decoration - Matching Shieldeum exactly */}
-            <div className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none">
+            <div className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none z-10">
                 <svg width="120" height="550" viewBox="0 0 120 550" className="opacity-90">
                     {/* Main vertical line */}
                     <line x1="60" y1="0" x2="60" y2="180" stroke="#00E08F" strokeWidth="2" />
@@ -109,7 +136,7 @@ export default function PartnersSection() {
             <div className="container-custom relative z-10 py-20">
                 <Reveal direction="up">
                     <div className="mb-12">
-                        <h2 className="text-6xl md:text-7xl font-bold text-white uppercase">
+                        <h2 className="text-6xl md:text-7xl font-bold text-white uppercase text-center mb-10">
                             Partners
                         </h2>
                     </div>
@@ -119,9 +146,9 @@ export default function PartnersSection() {
                 <motion.div
                     className="relative rounded-[40px] overflow-hidden"
                     style={{
-                        background: 'rgba(0, 0, 0, 0.6)',
-                        backdropFilter: 'blur(10px)',
-                        border: '1px solid rgba(100, 100, 100, 0.3)'
+                        background: 'rgba(0, 0, 0, 0.4)',
+                        backdropFilter: 'blur(20px)',
+                        border: '1px solid rgba(255, 255, 255, 0.1)'
                     }}
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -141,10 +168,10 @@ export default function PartnersSection() {
                     {/* Logo Container with Fade Effects */}
                     <div className="relative px-16 py-12">
                         {/* Left Fade */}
-                        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-black/90 to-transparent z-10 pointer-events-none" />
+                        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-black/50 to-transparent z-10 pointer-events-none" />
 
                         {/* Right Fade */}
-                        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-black/90 to-transparent z-10 pointer-events-none" />
+                        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-black/50 to-transparent z-10 pointer-events-none" />
 
                         {/* Row 1 */}
                         <div className="mb-8 overflow-hidden">

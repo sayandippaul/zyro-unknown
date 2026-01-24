@@ -1,5 +1,9 @@
+'use client';
+
 import Header from '@/components/Header';
+import { AnimatePresence } from 'framer-motion';
 import Hero from '@/components/Hero';
+import Preloader from '@/components/Preloader';
 import AboutSection from '@/components/AboutSection';
 import InnovationSection from '@/components/InnovationSection';
 import IntersectionSection from '@/components/IntersectionSection';
@@ -12,26 +16,43 @@ import FAQSection from '@/components/FAQSection';
 import Footer from '@/components/Footer';
 import ParticleBackground from '@/components/ParticleBackground';
 
+import { useState, useEffect } from 'react';
+
 export default function Home() {
+  const [isLoading, setIsLoading] = useState(true);
+
   return (
     <main className="min-h-screen relative">
+      <AnimatePresence mode="wait">
+        {isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
+      </AnimatePresence>
       {/* Particle Background - Behind everything */}
-      <ParticleBackground />
+      {/* <ParticleBackground /> */}
 
       {/* Content */}
       <div className="relative z-10">
         <Header />
-        <Hero />
-        <AboutSection />
+        <div id="home">
+          <Hero />
+        </div>
+        <div id="about">
+          <AboutSection />
+        </div>
         {/* <InnovationSection /> */}
         <MascotSection />
         {/* <IntersectionSection /> */}
         {/* <VideoShowcase /> */}
         {/* <GreenTechSection /> */}
-        <BusinessModelSection />
+        <div id="services">
+          <BusinessModelSection />
+        </div>
         <PartnersSection />
-        <FAQSection />
-        <Footer />
+        <div id="help">
+          <FAQSection />
+        </div>
+        <div id="terms">
+          <Footer />
+        </div>
       </div>
     </main>
   );

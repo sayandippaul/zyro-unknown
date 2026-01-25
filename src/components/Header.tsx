@@ -19,7 +19,7 @@ export default function Header() {
       setIsScrolled(currentScrollY > 50);
 
       // Scroll Spy Logic
-      const sections = ['home', 'about', 'services', 'terms', 'help'];
+      const sections = ['home', 'about', 'tracks', 'timeline', 'partners', 'faq', 'terms'];
       const scrollPosition = currentScrollY + 100; // Offset for header height
 
       for (const section of sections) {
@@ -82,9 +82,10 @@ export default function Header() {
   const navLinks = [
     { name: 'Home', href: '#home', id: 'home' },
     { name: 'About', href: '#about', id: 'about' },
-    { name: 'Services', href: '#services', id: 'services' },
-    { name: 'Terms & Conditions', href: '#terms', id: 'terms' },
-    { name: 'Help', href: '#help', id: 'help' }
+    { name: 'Tracks', href: '#tracks', id: 'tracks' },
+    { name: 'Timeline', href: '#timeline', id: 'timeline' },
+    { name: 'Partners', href: '#partners', id: 'partners' },
+    { name: 'FAQ', href: '#faq', id: 'faq' },
   ];
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {

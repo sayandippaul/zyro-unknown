@@ -146,7 +146,7 @@ export default function MascotSection() {
 
 
                 {/* Navigation Arrows - Fixed to Left Screen Edge */}
-                <div className="absolute left-4 sm:left-10 md:left-24 top-1/2 -translate-y-1/2 flex flex-col gap-4 z-30">
+                <div className="absolute left-4 sm:left-10 md:left-24 top-1/2 -translate-y-1/2 flex flex-col gap-4 z-30 lg:mt-3 hidden lg:block">
                     <motion.button
                         onClick={prevFeature}
                         className="relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center group hover:bg-[#00E08F]/10 rounded-xl transition-all border border-[#00E08F]/20 hover:border-[#00E08F]"
@@ -287,7 +287,7 @@ export default function MascotSection() {
                                         </motion.div>
 
                                         {/* Feature Cards */}
-                                        <div className="grid grid-cols-1 gap-4">
+                                        <div className="grid grid-cols-1 gap-4 lg:ml-20">
                                             {features[currentFeature].cards.map((card, i) => (
                                                 <motion.div
                                                     key={`${currentFeature}-${i}`}

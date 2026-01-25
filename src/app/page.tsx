@@ -39,15 +39,19 @@ export default function Home() {
           <AboutSection />
         </div>
         {/* <InnovationSection /> */}
+        <div id="tracks">
         <MascotSection />
+        </div>
         {/* <IntersectionSection /> */}
         {/* <VideoShowcase /> */}
         {/* <GreenTechSection /> */}
-        <div id="services">
+        <div id="timeline">
           <BusinessModelSection />
         </div>
-        <PartnersSection />
-        <div id="help">
+        <div id="partners">
+          <PartnersSection />
+        </div>
+        <div id="faq">
           <FAQSection />
         </div>
         <div id="terms">

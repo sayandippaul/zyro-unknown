@@ -5,12 +5,12 @@ import { Reveal } from './AdvancedAnimations';
 
 export default function AboutSection() {
     return (
-        <section className="section relative overflow-hidden bg-black py-20">
+        <section className="section relative overflow-hidden bg-black pt-32 md:pt-48 pb-20">
             {/* Left Circuit Decoration - Standard FAQ Style - Desktop Only */}
             <div className="absolute left-0 top-0 pointer-events-none z-0 w-full h-full hidden lg:block">
                 <svg width="100" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none" className="opacity-80">
                     {/* Path matching About section flow */}
-                    <path d="M50 0 L50 200 L80 230 L80 570 L50 600 L50 800" stroke="#00E08F" strokeWidth="2" fill="none" />
+                    <path d="M50 0 L50 300 L80 330 L80 670 L50 700 L50 800" stroke="#00E08F" strokeWidth="2" fill="none" />
 
                     {/* Top Square Node */}
                     <rect x="46" y="0" width="8" height="8" fill="#00E08F" filter="url(#glow)" />

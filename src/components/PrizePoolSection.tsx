@@ -108,7 +108,7 @@ export default function PrizePoolSection() {
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.2 }}
                             className={`relative ml-12 mr-4 md:mx-0 md:order-${prize.order}`}
-                            style={{ transform: window.innerWidth >= 768 ? `scale(${prize.scale})` : 'scale(1)' }}
+                            style={{ transform: typeof window !== 'undefined' && window.innerWidth >= 768 ? `scale(${prize.scale})` : 'scale(1)' }}
                         >
                             {/* Winner Badge */}
                             {prize.popular && (

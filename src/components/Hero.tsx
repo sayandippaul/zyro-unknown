@@ -9,7 +9,7 @@ import { useTypewriter } from '@/hooks/useTypewriter';
 
 export default function Hero() {
     const containerRef = useRef(null);
-
+    console.log('sri**** ****ra rendi');
     // Typewriter effect for description
     const description = "Be ready for 24 hours of relentless building, where robotics meets raw hardware engineering. Join Zyro for an intensive hackathon dedicated to crafting the future at the intersection of silicon and nature.";
     const { displayedText, isComplete } = useTypewriter(description, 30, 1000);
@@ -114,11 +114,8 @@ export default function Hero() {
                             </Reveal>
                         </div>
 
-                        {/* Spacer for mobile to push buttons to bottom */}
-                        <div className="flex-grow md:hidden" />
-
-                        {/* Buttons Area - Bottom aligned on mobile */}
-                        <div className="flex flex-col items-center lg:items-start pb-16 md:pb-0">
+                        {/* Buttons Area - Directly under content */}
+                        <div className="flex flex-col items-center lg:items-start pb-10 md:pb-0">
                             <Reveal delay={0.8} direction="up">
                                 <div className="flex flex-col sm:flex-row flex-wrap gap-6 lg:pl-12 items-center">
                                     {/* Register Now Button */}

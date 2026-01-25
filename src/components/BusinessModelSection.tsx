@@ -2,69 +2,9 @@
 
 import { motion } from 'framer-motion';
 import { Reveal } from './AdvancedAnimations';
+import { businessComponents } from '@/lib/businessComponentsData';
 
-const businessComponents = [
-    {
-        id: 1,
-        number: '01',
-        date: 'Phase 1',
-        title: 'Node Pools',
-        description: 'Distributed computing network',
-        color: '#00E08F',
-        position: { top: '-7%', left: '18%' },
-        border: 'right-bottom',
-        lineAngle: 35,
-        lineLength: 100
-    },
-    {
-        id: 2,
-        number: '02',
-        date: 'Core',
-        title: 'Zyro AI Infrastructure DePIN',
-        description: 'Decentralized infrastructure',
-        color: '#00E08F',
-        position: { top: '-25%', left: '42%', transform: 'translateX(-50%)' },
-        border: 'bottom',
-        lineAngle: 90,
-        lineLength: 80
-    },
-    {
-        id: 3,
-        number: '03',
-        date: 'Phase 2',
-        title: 'Zyro Protocol',
-        description: 'Security and consensus layer',
-        color: '#00E08F',
-        position: { top: '-15%', right: '18%' },
-        border: 'left-bottom',
-        lineAngle: 145,
-        lineLength: 100
-    },
-    {
-        id: 4,
-        number: '04',
-        date: 'Ecosystem',
-        title: 'Infrastructure & Technology',
-        description: 'Development framework',
-        color: '#00E08F',
-        position: { top: '66%', left: '15%' },
-        border: 'right-top',
-        lineAngle: -35,
-        lineLength: 90
-    },
-    {
-        id: 5,
-        number: '05',
-        date: 'Security',
-        title: 'Secure Computing Power',
-        description: 'Protected processing units',
-        color: '#00E08F',
-        position: { top: '66%', right: '15%' },
-        border: 'left-top',
-        lineAngle: -145,
-        lineLength: 90
-    }
-];
+
 
 export default function BusinessModelSection() {
     return (
@@ -127,16 +67,16 @@ export default function BusinessModelSection() {
             </div>
 
             {/* Heading - Left aligned like Shieldeum */}
-            <div className="absolute top-[4%] left-[15%] z-10 mb-20">
+            <div className="absolute top-[4%] left-[15%] z-10 mb-20 hidden md:block">
                 <Reveal direction="up">
-                    <h2 className="text-6xl md:text-7xl font-bold text-white uppercase mb-20" >
+                    <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white uppercase mb-20" >
                         Timeline
                     </h2>
                 </Reveal>
             </div>
 
             {/* Main Visualization Container - Full width for proper label positioning */}
-            <div className="relative w-full h-[600px] mt-32 z-10">
+            <div className="relative w-full h-[400px] sm:h-[500px] md:h-[600px] mt-20 md:mt-32 z-10">
                 {/* Component Labels with Connecting Lines */}
                 {businessComponents.map((component, index) => {
                     // Calculate diagonal line endpoint using trigonometry
@@ -160,7 +100,7 @@ export default function BusinessModelSection() {
                         >
                             {/* Label Box with structured content */}
                             <div
-                                className="px-6 py-4 text-white relative"
+                                className="px-6 py-4 text-white relative mb-6"
                                 style={{
                                     borderLeft: component.border.includes('left') ? '1px solid rgb(59, 67, 67)' : 'none',
                                     borderRight: component.border.includes('right') ? '1px solid rgb(59, 67, 67)' : 'none',
@@ -170,7 +110,7 @@ export default function BusinessModelSection() {
                                         component.border === 'left-bottom' ? '0 0 0 4px' :
                                             component.border === 'right-top' ? '0 4px 0 0' :
                                                 component.border === 'left-top' ? '4px 0 0 0' : '0',
-                                    minWidth: '200px'
+                                    minWidth: '150px'
                                 }}
                             >
                                 {/* Number badge */}
@@ -195,7 +135,7 @@ export default function BusinessModelSection() {
                                 </div>
 
                                 {/* Title */}
-                                <div className="text-base md:text-lg font-bold mb-1">
+                                <div className="text-sm sm:text-base md:text-lg font-bold mb-1">
                                     {component.title}
                                 </div>
 

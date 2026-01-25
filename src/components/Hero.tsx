@@ -114,7 +114,7 @@ export default function Hero() {
                                 style={{ transformOrigin: 'bottom' }}
                             >
                                 <motion.img
-                                    src="https://res.cloudinary.com/dkxskaege/image/upload/v1769283465/Zyro_kvywql-logo.svg"
+                                    src="https://res.cloudinary.com/dkxskaege/image/upload/v1769346773/Zyro_kvywql.png"
                                     alt="Zyro Logo"
                                     className="w-full max-w-[300px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[600px] h-auto object-contain"
                                     animate={{
@@ -130,13 +130,13 @@ export default function Hero() {
                         </div>
 
                         <Reveal delay={0.6} direction="up">
-                            <p className="text-[#A1A1A1] text-sm sm:text-base md:text-lg max-w-md leading-relaxed">
+                            <p className="text-[#A1A1A1] text-sm sm:text-base md:text-lg max-w-md leading-relaxed lg:ml-12">
                                 Be ready for 24 hours of relentless building, where robotics meets raw hardware engineering. Join Zyro for an intensive hackathon dedicated to crafting the future at the intersection of silicon and nature.
                             </p>
                         </Reveal>
 
                         <Reveal delay={0.8} direction="up">
-                            <div className="flex flex-col sm:flex-row flex-wrap gap-4">
+                            <div className="flex flex-col sm:flex-row flex-wrap gap-4 lg:ml-12">
                                 <MagneticButton>
                                     <motion.button
                                         className="btn-primary relative overflow-hidden group w-full sm:w-auto"

@@ -39,7 +39,7 @@ export default function AboutSection() {
                         {/* Big Heading - FAQ Style */}
                         <Reveal direction="up">
                             <div className="mb-2">
-                                <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white">
+                                <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white lg:ml-12">
                                     ABOUT ZYRO
                                 </h2>
                             </div>
@@ -51,13 +51,13 @@ export default function AboutSection() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: 0.1 }}
                         >
-                            <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-[#00E08F] leading-tight mb-6">
+                            <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-[#00E08F] leading-tight mb-6 lg:ml-12">
                                 Pioneering the Future of <br />
                                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00E08F] to-[#00E08F]/50">
                                     Green Technology
                                 </span>
                             </h3>
-                            <p className="text-[#C2C2C2] text-sm sm:text-base md:text-lg leading-relaxed max-w-xl">
+                            <p className="text-[#C2C2C2] text-sm sm:text-base md:text-lg leading-relaxed max-w-xl lg:ml-12">
                                 Zyro represents the convergence of sustainable innovation and advanced artificial intelligence. We are building an ecosystem where technology doesn't just serve humanity, but actively regenerates our planet.
                             </p>
                         </motion.div>

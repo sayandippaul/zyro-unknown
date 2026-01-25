@@ -100,7 +100,7 @@ export default function BusinessModelSection() {
                         >
                             {/* Label Box with structured content */}
                             <div
-                                className="px-6 py-4 text-white relative mb-6"
+                                className="px-0 py-4 text-white relative mb-6"
                                 style={{
                                     borderLeft: component.border.includes('left') ? '1px solid rgb(59, 67, 67)' : 'none',
                                     borderRight: component.border.includes('right') ? '1px solid rgb(59, 67, 67)' : 'none',

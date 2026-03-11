@@ -56,7 +56,7 @@ export default function AboutSection() {
                                 </span>
                             </h3>
                             <p className="text-[#C2C2C2] text-sm sm:text-base md:text-lg leading-relaxed max-w-xl lg:ml-12">
-                                Zyro represents the convergence of sustainable innovation and advanced artificial intelligence. We are building an ecosystem where technology doesn't just serve humanity, but actively regenerates our planet.
+                                <strong className="text-white font-semibold">ZYRO 2026</strong> is an immersive 24-hour offline hardware robotics hackathon dedicated to building real-world, impact-driven systems aligned with the theme: <span className="text-[#00E08F]">"Sustainable Future with Robotics"</span>. This is not a software-only hackathon. Participants are challenged to design and construct hardware-integrated solutions encompassing electronics, microcontrollers, sensors, automation, AI, and physical prototypes.
                             </p>
                         </motion.div>
 
@@ -94,8 +94,8 @@ export default function AboutSection() {
                                         </svg>
                                     </div>
                                     <div>
-                                        <h4 className="text-lg font-medium text-white mb-2">Sustainable Power</h4>
-                                        <p className="text-[#C2C2C2] text-sm">Harnessing renewable energy sources to power next-generation computing infrastructure.</p>
+                                        <h4 className="text-lg font-medium text-white mb-2">Hardware Integration</h4>
+                                        <p className="text-[#C2C2C2] text-sm">Design and build fully functional physical prototypes powered by modern electronics, sensors, and microcontrollers.</p>
                                     </div>
                                 </div>
                             </motion.div>
@@ -133,8 +133,8 @@ export default function AboutSection() {
                                         </svg>
                                     </div>
                                     <div>
-                                        <h4 className="text-lg font-medium text-white mb-2">AI Optimization</h4>
-                                        <p className="text-[#C2C2C2] text-sm">Smart algorithms that dynamically adjust energy consumption for maximum efficiency.</p>
+                                        <h4 className="text-lg font-medium text-white mb-2">Intelligent Automation</h4>
+                                        <p className="text-[#C2C2C2] text-sm">Implement cutting-edge software, autonomous control systems, and AI to bring your robotic solutions to life.</p>
                                     </div>
                                 </div>
                             </motion.div>
